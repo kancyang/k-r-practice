@@ -5,14 +5,6 @@
 #define	IN 1
 #define OUT 0
 
-int notg(int a)
-{
-	if (a == IN)
-		return OUT;
-	else
-		return IN;
-}
-
 int main(void)
 {
 	int lc, c;
@@ -43,19 +35,21 @@ int main(void)
 		else if (quo == IN)
 		{
 			putchar(c);
-			if (c == '\\')
-				bs = notg(bs);
-			if (bs == OUT && c == '\'')
-			{
+			if (bs == IN)
+				bs = OUT;
+			else if (c == '\\')
+				bs = IN;
+			else if (c == '\'')
 				quo = OUT;
-			}
 		}
 		else if (dquo == IN)
 		{
 			putchar(c);
-			if (c == '\\')
-				bs = notg(bs);
-			if (bs == OUT && c == '\"')
+			if (bs == IN)
+				bs = OUT;
+			else if (c == '\\')
+				bs = IN;
+			else if (c == '\'')
 				dquo = OUT;
 		}
 		else
@@ -78,9 +72,15 @@ int main(void)
 					putchar('/');
 			}
 			if (c == '\"')
+			{
 				dquo = IN;
+				bs = OUT;
+			}
 			else if (c == '\'')
+			{
 				quo = IN;
+				bs =OUT;
+			}
 			if (c != '/')
 				putchar(c);
 		}
