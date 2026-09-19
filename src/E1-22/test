@@ -1,7 +1,0 @@
-Short line, no fold needed.
-This line is longer than eighty characters and contains a space before the limit, so it should fold at that blank.
-ThisVeryLongWordWithoutAnySpacesWillBeBrokenWithHyphenAtTheColumnBoundary.
-A	tab	separated	long	line	with	tabs	that	should	be	folded	properly	at	tab	stops,	and	it's	long.
-Thiswordislongerthan12letters, so the hyphen should appear inside the word.
-Exactly 80 chars? Let's count: 12345678901234567890123456789012345678901234567890123456789012345678901234567890 (80, no fold)
-This line has a space at column 79, so fold before that space.
