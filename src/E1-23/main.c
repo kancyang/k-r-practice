@@ -16,7 +16,8 @@ int notg(int a)
 int main(void)
 {
 	int lc, c;
-	int comment, lcomment, quo, dquo;
+	int comment = OUT, lcomment = OUT, quo = OUT, dquo = OUT;
+	int bs = OUT;
 	lc = ' ';
 	while ((c = getchar()) != EOF)
 	{
@@ -35,13 +36,16 @@ int main(void)
 			{
 				lc = ' ';
 				lcomment = OUT;
+				putchar('\n');
 				continue;
 			}
 		}
 		else if (quo == IN)
 		{
 			putchar(c);
-			if (lc != '\\' && c == '\'')
+			if (c == '\\')
+				bs = notg(bs);
+			if (bs == OUT && c == '\'')
 			{
 				quo = OUT;
 			}
@@ -49,7 +53,9 @@ int main(void)
 		else if (dquo == IN)
 		{
 			putchar(c);
-			if (lc != '\\' && c == '\"')
+			if (c == '\\')
+				bs = notg(bs);
+			if (bs == OUT && c == '\"')
 				dquo = OUT;
 		}
 		else
@@ -80,6 +86,8 @@ int main(void)
 		}
 		lc = c;
 	}
+	if (lc == '/')
+		putchar('/');
 
 	return 0;
 }
