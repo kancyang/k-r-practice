@@ -7,6 +7,7 @@
 
 int main(void)
 {
+	printf("/*hello!*/\n");
 	int lc, c;
 	int comment = OUT, lcomment = OUT, quo = OUT, dquo = OUT;
 	int bs = OUT;
