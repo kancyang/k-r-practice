@@ -1,5 +1,6 @@
 /* check unclosed brackets */
 /* 2026-10-11 */
+/* I should say this is a poor version. */
 
 #include <stdio.h>
 
@@ -65,6 +66,7 @@ int main(void)
 				--p;
 				if (p<0) {
 					printf("Overmatched bracket at line %d, column %d.\n",line,col);
+					p=0;
 					break;
 				}
 				if (br[p]==1)
@@ -76,6 +78,7 @@ int main(void)
 				--p;
 				if (p<0) {
 					printf("Overmatched brackets at line %d, column %d.\n",line,col);
+					p=0;
 					break;
 				}
 				if (br[p]==2)
@@ -87,6 +90,7 @@ int main(void)
 				--p;
 				if (p<0) {
 					printf("Overmatched brackets at line %d, column %d.\n",line,col);
+					p=0;
 					break;
 				}
 				if (br[p]==3)
